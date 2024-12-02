@@ -32,3 +32,6 @@
 /Users/kaitsvetkov/C#/OnlineChatApp/Backend/obj/Debug/net8.0/Backend.pdb
 /Users/kaitsvetkov/C#/OnlineChatApp/Backend/obj/Debug/net8.0/Backend.genruntimeconfig.cache
 /Users/kaitsvetkov/C#/OnlineChatApp/Backend/obj/Debug/net8.0/ref/Backend.dll
+/Users/kaitsvetkov/C#/OnlineChatApp/Backend/bin/Debug/net8.0/Microsoft.DotNet.PlatformAbstractions.dll
+/Users/kaitsvetkov/C#/OnlineChatApp/Backend/bin/Debug/net8.0/Microsoft.Extensions.DependencyModel.dll
+/Users/kaitsvetkov/C#/OnlineChatApp/Backend/bin/Debug/net8.0/Newtonsoft.Json.dll
