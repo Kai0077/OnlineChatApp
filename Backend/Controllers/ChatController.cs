@@ -7,22 +7,22 @@ namespace Backend.Controllers
     [Route("api/[controller]")]
     public class ChatController : ControllerBase
     {
+        private static List<ChatMessage> Messages = new List<ChatMessage>();
+
         [HttpPost("send")]
         public IActionResult SendMessage([FromBody] ChatMessage message)
         {
-            Console.WriteLine($"Received message: {message?.User}, {message?.Content}, {message?.Timestamp}");
+            Messages.Add(message);
+            Console.WriteLine($"Received message: {message.User}, {message.Content}, {message.Timestamp}");
             return Ok(new { status = "Message sent", message });
         }
 
-        // Endpoint to retrieve messages (placeholder)
         [HttpGet("messages")]
         public IActionResult GetMessages()
         {
-            // Placeholder logic for retrieving messages
-            return Ok(new { messages = "Message history will go here" });
+            return Ok(Messages);
         }
 
-        // Test route to ensure the controller is working
         [HttpGet("test")]
         public IActionResult Test()
         {

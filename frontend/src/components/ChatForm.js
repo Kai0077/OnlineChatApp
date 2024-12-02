@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { db } from "../firebase"; 
 
 function ChatForm() {
     const [user, setUser] = useState("");
@@ -6,17 +8,15 @@ function ChatForm() {
 
     const sendMessage = async () => {
         try {
-            const response = await fetch("http://localhost:5000/api/chat/send", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    user,
-                    content,
-                    timestamp: new Date().toISOString(),
-                }),
+            // gemmer besked i Firestore
+            await addDoc(collection(db, "messages"), {
+                user,
+                content,
+                timestamp: Timestamp.now(), 
             });
-            const data = await response.json();
-            console.log("Response:", data);
+            console.log("Message sent!");
+            setUser(""); 
+            setContent(""); 
         } catch (error) {
             console.error("Error sending message:", error);
         }
